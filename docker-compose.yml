@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    pdf:
+        build: .
+        command: >
+            sh -c "pdflatex -shell-escape main.tex
+            && bibtex main.aux
+            && pdflatex -shell-escape main.tex
+            && pdflatex -shell-escape main.tex"
+        volumes:
+            - .:/workdir

@@ -1,0 +1,9 @@
+main.pdf
+*.aux
+*.log
+*.out
+*.end
+*.bbl
+*.blg
+_minted-main/*
+svg-inkscape/*

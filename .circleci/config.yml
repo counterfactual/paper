@@ -1,0 +1,34 @@
+version: 2
+jobs:
+  build:
+
+    docker:
+      - image: ivanpondal/alpine-latex:1.1.0
+
+    working_directory: /workdir
+
+    steps:
+      - checkout
+
+      - setup_remote_docker
+
+      - run: apk update
+      - run: apk --no-cache add perl wget py-pygments ca-certificates xz inkscape
+      - run: tlmgr update --self
+      - run: tlmgr install revtex4 inconsolata ulem
+
+      - run:
+          name: Building PDF
+          command: |
+            pdflatex -shell-escape main.tex
+            bibtex main.aux
+            pdflatex -shell-escape main.tex
+            pdflatex -shell-escape main.tex
+
+      - store_artifacts:
+          path: main.pdf
+          destination: artifact-file
+
+      - store_artifacts:
+          path: main.log
+          destination: raw-test-output

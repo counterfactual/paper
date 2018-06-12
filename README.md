@@ -18,3 +18,17 @@ This repository stores the LaTeX code for the Generalized State Channels paper. 
 ```bash
 docker-compose up
 ```
+
+### Citing this paper
+
+To reference this paper in other works, here is an example BibTex entry:
+
+```tex
+@misc{
+   Coleman_2018,
+   author = "Jeff Coleman, Liam Horne, and Li Xuanji",
+   title = "Counterfactual: Generalized State Channels",
+   year = "2018",
+   howpublished = {\url{http://l4.ventures/papers/statechannels.pdf}}
+}
+```

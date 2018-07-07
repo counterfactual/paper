@@ -978,7 +978,7 @@ Now that there is a balance of $\sum_{i=0}^{n-1} s_i$ in the multisignature wall
 
 \end{enumerate}
 
-We defer a specification of the rollback protocol and a sketch of the safety proof to appendix \ref{sec:safetyproof}. Intuitively, this protocol is safe because at any point in time someone who has deposited has ownership of the deposited amount assigned to himself either via a PaymentChannel or a BalanceRefund object. We atomically tranisiton between states for which this invariant holds either by updating the root nonce or by depositing money on-chain.
+We defer a specification of the rollback protocol and a sketch of the safety proof to appendix \ref{sec:safetyproof}. Intuitively, this protocol is safe because at any point in time someone who has deposited has ownership of the deposited amount assigned to himself either via a PaymentChannel or a BalanceRefund object. We atomically transition between states for which this invariant holds either by updating the root nonce or by depositing money on-chain.
 
 \subsubsection{Making a payment in the payment channel.}
 After all steps in the prior section have been completed, parties in the state channel can begin making payments simply by updating the balance of the payments counterfactual object, which only requires one message to be signed. So, for example, if the balances change from $P_i$ having $s_i$ in the payment channel to $s'_i$ then the parties would \textit{counterfactually update the payment contract} to a new value for its \textsf{balances} using the following arguments:
